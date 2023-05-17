@@ -1,0 +1,27 @@
+.profile__add-button{
+    background: none;
+    color: inherit;
+    padding: 0;
+    outline: inherit;
+    cursor: pointer;
+    transition: filter 0.3s;
+    border: 2px solid #FFFFFF;
+
+    height: 50px;
+    min-width: 150px;
+    align-self: center;
+    margin-left: 20%;
+}
+
+.profile__add-button:hover {
+    filter: brightness(50%);
+}
+
+ @media screen and (max-width: 646px) {
+    .profile__add-button {
+        align-self: center;
+        margin: 0;
+        width: 282px;
+        margin-top: 50px;
+    }
+}

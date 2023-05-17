@@ -1,0 +1,21 @@
+.form-post__about{
+    border: none; 
+    outline: none; 
+    box-shadow: none; 
+    border-bottom: 1px solid #C4C4C4;
+
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 17px;
+
+color: #C4C4C4;
+
+width: 358px;
+    height: 27px;
+    justify-content: center;
+
+    margin-bottom: 15px;
+
+}

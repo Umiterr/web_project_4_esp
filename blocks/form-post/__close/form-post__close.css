@@ -1,0 +1,19 @@
+.form-post__close{
+    position: absolute;
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    outline: inherit;
+    cursor: pointer;
+
+    transition: filter 0.3s;
+
+    right: -35px;
+    top: -35px;
+    
+}
+
+.form-post__close:hover {
+    filter: brightness(50%);
+}
