@@ -54,7 +54,7 @@ profileSaveButton.addEventListener('click',edit);
 
 // heart button 
 
-/*
+
 
 let heartButton = document.querySelector('.feed__heart-button');
 let heartImage = document.querySelector('.feed__heart-image');
@@ -67,5 +67,5 @@ function heartButtonClick () {
 
 heartButton.addEventListener('click', heartButtonClick);
 
-*/
+
 }); 

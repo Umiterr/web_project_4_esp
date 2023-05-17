@@ -8,4 +8,7 @@ line-height: 29px;
 color: #000000;
 padding-right: 30px;
 text-align: center;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
 }
