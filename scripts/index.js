@@ -6,22 +6,23 @@ document.addEventListener('DOMContentLoaded', (event) => {
 let closeButton = document.querySelector('.form-profile__close');
 let formProfile = document.querySelector('.form-profile');
 let profileButton = document.querySelector('.profile__edit-button');
+let profileOn = document.querySelector('.form-profile_on');
 
 
 function close () {
 
     
 
-if (formProfile.style.display === 'none') {
+if (formProfile.classList.contains('form-profile_on')) {
     
-    formProfile.style.display = 'flex';
-} else {
+    formProfile.classList.toggle('form-profile_on');
+} else if (formProfile.classList.contains('form-profile_on') === false) {
     
-    formProfile.style.display = 'none';
+    formProfile.classList.toggle('form-profile_on');
 }
 
 }
-close ()
+
 closeButton.addEventListener('click', close);
 profileButton.addEventListener('click', close);
 
@@ -40,16 +41,31 @@ function refreshProfile() {
 refreshProfile()
 
 
-function edit () { 
+
+// Save profile
+function edit (event) { 
+    if (event.type === 'keydown') {
+        
+        if (event.key === 'Enter') {
+            
+            event.preventDefault();
+        } else {
+            
+            return;
+        }
+    }
 
     profileName.textContent = profileNameForm.value;
     profileAbout.textContent = profileAboutForm.value;
-
 }
 
-edit();
+
+
+
 
 profileSaveButton.addEventListener('click',edit);
+profileNameForm.addEventListener('keydown', edit);
+profileAboutForm.addEventListener('keydown', edit);
 
 
 // heart button 

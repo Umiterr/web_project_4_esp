@@ -49,6 +49,7 @@
 @import url(../blocks/form-profile/__title/form-profile__title.css);
 @import url(../blocks/form-profile/__window/form-profile__window.css);
 @import url(../blocks/form-profile/__close-image/form-profile__close-image.css);
+@import url(../blocks/form-profile/_on/form-profile_on.css);
 
 
 /* form-images */
