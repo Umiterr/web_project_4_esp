@@ -1,4 +1,4 @@
-.form-profile_on{
+.form-post_on{
     opacity: 1;
     transition: opacity 0.5s ease-in-out;
     z-index: 1;
@@ -6,7 +6,7 @@
     pointer-events: auto;
 }
 
-.form-profile_on.show{
+.form-post_on.show{
     
     opacity: 0;
     

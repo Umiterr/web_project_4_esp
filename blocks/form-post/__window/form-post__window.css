@@ -9,3 +9,10 @@
     align-items: center;
     gap: 30px;
 }
+
+@media screen and (max-width: 580px) {
+    .form-post__window {
+        width: 282px;
+        height: 322px;
+    }
+}

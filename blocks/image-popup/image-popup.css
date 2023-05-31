@@ -1,4 +1,4 @@
-.form-profile{
+.image-popup {
     display: flex;
     z-index: 1;
     position: fixed;
@@ -10,9 +10,8 @@
     background-color: rgba(0, 0, 0, 0.5);
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
-    
 }
 
-.form-profile.show{
+.image-popup.show{
     pointer-events: auto;
 }
