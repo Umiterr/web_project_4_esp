@@ -16,3 +16,7 @@
 .form-post.show{
     pointer-events: auto;
 }
+
+.form-post.initial {
+    opacity: 0;
+}

@@ -4,12 +4,7 @@
     z-index: 1;
     animation: slide-in 0.3s ease-in;
     pointer-events: auto;
-}
-
-.image-popup_on.show{
-    
-    opacity: 0;
-    
+    visibility: visible;
 }
 
 

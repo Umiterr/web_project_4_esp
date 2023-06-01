@@ -12,6 +12,3 @@
     transition: opacity 0.5s ease-in-out;
 }
 
-.image-popup.show{
-    pointer-events: auto;
-}

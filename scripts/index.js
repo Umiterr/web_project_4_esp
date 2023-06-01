@@ -97,7 +97,7 @@ let showOpacityPost = document.querySelector(".form-post_on.show");
 let formPost = document.querySelector(".form-post");
 let postButtonAdd = document.querySelector(".profile__add-button");
 
-function close () {
+function closePost () {
 
     
 
@@ -113,9 +113,9 @@ if (formPost.classList.contains('form-post_on')) {
 
 }
 
-closeButtonPost.addEventListener('click', close);
-postButtonSave.addEventListener('click', close);
-postButtonAdd.addEventListener('click', close);
+closeButtonPost.addEventListener('click', closePost);
+postButtonSave.addEventListener('click', closePost);
+postButtonAdd.addEventListener('click', closePost);
 
 
 // posts
@@ -130,6 +130,9 @@ function savePost(formPostURL, formPostName) {
 
     postElement.querySelector(".feed__image").src = formPostURL;
     postElement.querySelector(".feed__title").textContent = formPostName;
+    postElement.querySelector(".feed__heart-button").addEventListener('click', function(event) {
+        heartButtonClick(event);
+    })
     feed.prepend(postElement);
     
 }
@@ -163,7 +166,7 @@ deleteButton.forEach(function(button) {
 
 
 let closeButtonPopup = document.querySelector('.image-popup__close');
-let ButtonPopups = document.querySelectorAll(".feed__image-popup-buttom");
+let buttonPopups = document.querySelectorAll(".feed__image-popup-buttom");
 let imagePopup = document.querySelector('.image-popup');
 let imagePopupOn = document.querySelector('.image-popup_on');
 let showOpacityPopup = document.querySelector(".image-popup_on.show");
@@ -185,22 +188,26 @@ if (imagePopup.classList.contains('image-popup_on')) {
 }
 
 closeButtonPopup.addEventListener('click', closepopup);
-ButtonPopups.forEach(function(ButtonPopups) {
-ButtonPopups.addEventListener('click', closepopup);
+buttonPopups.forEach(function(buttonPopups) {
+buttonPopups.addEventListener('click', closepopup);
 });
 
 
 //show image popup
-    let popupImage = document.querySelector('.image-popup__image').src;
-    
-    ButtonPopups.forEach(function(button) {
-        button.addEventListener('click', function() {
-        let feedImage = button.querySelector('.feed__image');
-           
-        popupImage = feedImage.src;
-      });
+let popupImage = document.querySelector('.image-popup__image');
+let popupImageTitle = document.querySelector('.image-popup__title');
 
-    });
+buttonPopups.forEach(function(button) {
+  let feedImage = button.querySelector('.feed__image');
+  let feedTitle = button.closest('.feed__post').querySelector('.feed__title');
+
+  button.addEventListener('click', function() {
+    popupImage.src = feedImage.src;
+    popupImageTitle.textContent = feedTitle.textContent;
+  });
+});
+
+
 
 
 }); 
