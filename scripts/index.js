@@ -70,22 +70,7 @@ profileNameForm.addEventListener('keydown', edit);
 profileAboutForm.addEventListener('keydown', edit);
 
 
-// heart button 
 
-let heartButtons = document.querySelectorAll('.feed__heart-button');
-let heartImages = document.querySelectorAll('.feed__heart-image');
-
-function heartButtonClick(event) {
-    let clickedButton = event.target.closest('.feed__heart-button');
-    if (clickedButton) {
-        let index = Array.from(heartButtons).indexOf(clickedButton);
-        heartImages[index].classList.toggle('feed__heart-button_on');
-    }
-}
-
-heartButtons.forEach(function (button) {
-    button.addEventListener('click', heartButtonClick);
-});
 
 // post form
 
@@ -121,7 +106,19 @@ postButtonAdd.addEventListener('click', closePost);
 // posts
     const feed = document.querySelector(".feed");
     
+// heart button 
+
+let heartButtons = document.querySelectorAll('.feed__heart-button');
+
+heartButtons.forEach(function(button) {
+    button.addEventListener('click', function() {
+    const clickedButton = button.closest('.feed__heart-button');
+    const heartImage = button.querySelector(".feed__heart-image");
+    if (clickedButton) {
+        heartImage.classList.toggle('feed__heart-button_on');
+    }
     
+});});
 
 // Add Post
 function savePost(formPostURL, formPostName) {
@@ -130,11 +127,21 @@ function savePost(formPostURL, formPostName) {
 
     postElement.querySelector(".feed__image").src = formPostURL;
     postElement.querySelector(".feed__title").textContent = formPostName;
-    postElement.querySelector(".feed__heart-button").addEventListener('click', function(event) {
-        heartButtonClick(event);
-    })
+   
     feed.prepend(postElement);
     
+// Delete new posts 
+const deleteButton = document.querySelectorAll('.feed__trash-button');
+
+deleteButton.forEach(function(button) {
+    button.addEventListener('click', function() {
+    const post = button.closest('.feed__post');
+    post.remove();
+  });
+});
+
+
+
 }
 
 // Save post
@@ -150,15 +157,6 @@ postButtonSave.addEventListener("click", function () {
     
 });
 
-// Delete Post
-const deleteButton = document.querySelectorAll('.feed__trash-button');
-
-deleteButton.forEach(function(button) {
-    button.addEventListener('click', function() {
-    const post = button.closest('.feed__post');
-    post.remove();
-  });
-});
 
 // Image popup
 
