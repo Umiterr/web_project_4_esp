@@ -6,12 +6,6 @@
     pointer-events: auto;
 }
 
-.form-post_on.show{
-    
-    opacity: 0;
-    
-}
-
 
 @keyframes slide-in {
     from { transform: translateY(-50px); opacity: 0; }

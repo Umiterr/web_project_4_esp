@@ -12,11 +12,3 @@
     transition: opacity 0.5s ease-in-out;
     
 }
-
-.form-post.show{
-    pointer-events: auto;
-}
-
-.form-post.initial {
-    opacity: 0;
-}

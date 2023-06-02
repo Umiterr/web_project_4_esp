@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Around The U.S.</title>
     <link rel="stylesheet" type="text/css" href="pages/index.css" />
-    
   </head>
   <body>
     <main class="content">
@@ -25,14 +24,14 @@
           <input
             class="form-profile__name"
             type="text"
-            id="nombre"
+            id="nombreprofile"
             name="nombre"
             placeholder="Nombre"
           />
           <input
             class="form-profile__about"
             type="text"
-            id="acerca-de"
+            id="acerca-deprofile"
             name="acerca-de"
             placeholder="Acerca de mí"
           />
@@ -56,14 +55,14 @@
           <input
             class="form-post__name"
             type="text"
-            id="nombre"
+            id="nombrePost"
             name="nombre"
             placeholder="Titulo"
           />
           <input
             class="form-post__about"
             type="text"
-            id="acerca-de"
+            id="acerca-dePost"
             name="acerca-de"
             placeholder="URL de la imagen"
           />
@@ -81,10 +80,13 @@
               alt="Close icon"
             />
           </button>
-          <img class="image-popup__image" src="images/El-Gran-Canon-2.jpg" alt="Post image">
+          <img
+            class="image-popup__image"
+            src="images/El-Gran-Canon-2.jpg"
+            alt="Post image"
+          />
           <h4 class="image-popup__title">Valle de Yosemite test</h4>
         </div>
-        
       </section>
 
       <header class="header">
@@ -116,8 +118,6 @@
       </section>
 
       <section class="feed">
-
-        
         <div class="feed__post">
           <button class="feed__trash-button">
             <img
@@ -126,7 +126,9 @@
               alt="trash"
             />
           </button>
-          <button class="feed__image-popup-buttom"><img class="feed__image" src="images/Yosemite.jpg" alt="Yosemite" /></button>
+          <button class="feed__image-popup-buttom">
+            <img class="feed__image" src="images/Yosemite.jpg" alt="Yosemite" />
+          </button>
           <h3 class="feed__title">Valle de Yosemite</h3>
           <button class="feed__heart-button">
             <img
@@ -136,9 +138,7 @@
             />
           </button>
         </div>
-      
 
-      
         <div class="feed__post">
           <button class="feed__trash-button">
             <img
@@ -147,11 +147,13 @@
               alt="trash"
             />
           </button>
-          <button class="feed__image-popup-buttom"><img
-            class="feed__image"
-            src="images/Lago-louise.jpg"
-            alt="Yosemite"
-          /></button>
+          <button class="feed__image-popup-buttom">
+            <img
+              class="feed__image"
+              src="images/Lago-louise.jpg"
+              alt="Yosemite"
+            />
+          </button>
           <h3 class="feed__title">Lago Louise</h3>
           <button class="feed__heart-button">
             <img
@@ -161,9 +163,7 @@
             />
           </button>
         </div>
-      
 
-      
         <div class="feed__post">
           <button class="feed__trash-button">
             <img
@@ -172,11 +172,13 @@
               alt="trash"
             />
           </button>
-          <button class="feed__image-popup-buttom"><img
-            class="feed__image"
-            src="images/Montanas-Calvas.jpg"
-            alt="Montanas-Calvas"
-          /></button>
+          <button class="feed__image-popup-buttom">
+            <img
+              class="feed__image"
+              src="images/Montanas-Calvas.jpg"
+              alt="Montanas-Calvas"
+            />
+          </button>
           <h3 class="feed__title">Montañas Calvas</h3>
           <button class="feed__heart-button">
             <img
@@ -186,9 +188,7 @@
             />
           </button>
         </div>
-      
 
-      
         <div class="feed__post">
           <button class="feed__trash-button">
             <img
@@ -197,11 +197,13 @@
               alt="trash"
             />
           </button>
-          <button class="feed__image-popup-buttom"><img
-            class="feed__image"
-            src="images/El-Gran-Canon.jpg"
-            alt="El-Gran-Canon"
-          /></button>
+          <button class="feed__image-popup-buttom">
+            <img
+              class="feed__image"
+              src="images/El-Gran-Canon.jpg"
+              alt="El-Gran-Canon"
+            />
+          </button>
           <h3 class="feed__title">El Gran Cañón</h3>
           <button class="feed__heart-button">
             <img
@@ -211,9 +213,7 @@
             />
           </button>
         </div>
-      
 
-      
         <div class="feed__post">
           <button class="feed__trash-button">
             <img
@@ -222,11 +222,13 @@
               alt="trash"
             />
           </button>
-          <button class="feed__image-popup-buttom"><img
-            class="feed__image"
-            src="images/El-Gran-Canon-2.jpg"
-            alt="El-Gran-Canon-2"
-          /></button>
+          <button class="feed__image-popup-buttom">
+            <img
+              class="feed__image"
+              src="images/El-Gran-Canon-2.jpg"
+              alt="El-Gran-Canon-2"
+            />
+          </button>
           <h3 class="feed__title">El Gran Cañón 2</h3>
           <button class="feed__heart-button">
             <img
@@ -237,37 +239,6 @@
           </button>
         </div>
 
-
-
-        <div class="feed__post">
-          <button class="feed__trash-button">
-            <img
-              class="feed__trash-image"
-              src="images/UI/Trash.svg"
-              alt="trash"
-            />
-          </button>
-          <button class="feed__image-popup-buttom"><img
-            class="feed__image"
-            src="images/Bliss.jpg"
-            alt="Sodoma County"
-          /></button>
-          <h3 class="feed__title">Sodoma County</h3>
-          <button class="feed__heart-button">
-            <img
-              class="feed__heart-image"
-              src="images/UI/Heart-White.svg"
-              alt="Heart white"
-            />
-          </button>
-        </div>
-      
-
-      
-        
-      
-
-      <template class="feed__post-template">
         <div class="feed__post">
           <button class="feed__trash-button">
             <img
@@ -277,9 +248,13 @@
             />
           </button>
           <button class="feed__image-popup-buttom">
-            <img class="feed__image" src="" alt="Post image" />
+            <img
+              class="feed__image"
+              src="images/Bliss.jpg"
+              alt="Sodoma County"
+            />
           </button>
-          <h3 class="feed__title"></h3>
+          <h3 class="feed__title">Sodoma County</h3>
           <button class="feed__heart-button">
             <img
               class="feed__heart-image"
@@ -288,7 +263,29 @@
             />
           </button>
         </div>
-      </template>
+
+        <template class="feed__post-template">
+          <div class="feed__post">
+            <button class="feed__trash-button">
+              <img
+                class="feed__trash-image"
+                src="images/UI/Trash.svg"
+                alt="trash"
+              />
+            </button>
+            <button class="feed__image-popup-buttom">
+              <img class="feed__image" src="" alt="Post image" />
+            </button>
+            <h3 class="feed__title"></h3>
+            <button class="feed__heart-button">
+              <img
+                class="feed__heart-image"
+                src="images/UI/Heart-White.svg"
+                alt="Heart white"
+              />
+            </button>
+          </div>
+        </template>
       </section>
     </main>
     <script src="scripts/index.js"></script>

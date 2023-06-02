@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', (event) => {
+
 
 // Edit profile form 
 
@@ -7,7 +7,7 @@ let closeButton = document.querySelector('.form-profile__close');
 let formProfile = document.querySelector('.form-profile');
 let profileButton = document.querySelector('.profile__edit-button');
 let profileOn = document.querySelector('.form-profile_on');
-let showOpacity = document.querySelector(".form-profile_on.show");
+
 
 function close () {
 
@@ -16,7 +16,7 @@ function close () {
 if (formProfile.classList.contains('form-profile_on')) {
     
     formProfile.classList.toggle('form-profile_on');
-    formProfile.classList.toggle('form-profile_on.show');
+    
 } else if (formProfile.classList.contains('form-profile_on') === false) {
     
     formProfile.classList.toggle('form-profile_on');
@@ -78,7 +78,6 @@ profileAboutForm.addEventListener('keydown', edit);
 let closeButtonPost = document.querySelector('.form-post__close');
 let postButtonSave = document.querySelector('.form-post__save');
 let postOn = document.querySelector('.form-post_on');
-let showOpacityPost = document.querySelector(".form-post_on.show");
 let formPost = document.querySelector(".form-post");
 let postButtonAdd = document.querySelector(".profile__add-button");
 
@@ -89,7 +88,7 @@ function closePost () {
 if (formPost.classList.contains('form-post_on')) {
     
     formPost.classList.toggle('form-post_on');
-    formPost.classList.toggle('form-post_on.show');
+    
 } else if (formPost.classList.contains('form-post_on') === false) {
     
     formPost.classList.toggle('form-post_on');
@@ -111,14 +110,19 @@ postButtonAdd.addEventListener('click', closePost);
 let heartButtons = document.querySelectorAll('.feed__heart-button');
 
 heartButtons.forEach(function(button) {
+    setLikeEventListener(button);
+});
+
+function setLikeEventListener(button) {
     button.addEventListener('click', function() {
-    const clickedButton = button.closest('.feed__heart-button');
-    const heartImage = button.querySelector(".feed__heart-image");
-    if (clickedButton) {
-        heartImage.classList.toggle('feed__heart-button_on');
-    }
-    
-});});
+        const clickedButton = button.closest('.feed__heart-button');
+        const heartImage = button.querySelector(".feed__heart-image");
+        if (clickedButton) {
+            heartImage.classList.toggle('feed__heart-button_on');
+        }      
+    });
+}
+
 
 // Add Post
 function savePost(formPostURL, formPostName) {
@@ -130,7 +134,7 @@ function savePost(formPostURL, formPostName) {
    
     feed.prepend(postElement);
     
-// Delete new posts 
+    // Delete new posts 
 const deleteButton = document.querySelectorAll('.feed__trash-button');
 
 deleteButton.forEach(function(button) {
@@ -140,9 +144,16 @@ deleteButton.forEach(function(button) {
   });
 });
 
+    //Heart new button
 
+    const imageButton = postElement.querySelector('.feed__image-popup-buttom');
+    setImagePopupEventListener(imageButton);
 
-}
+    const likeButton = postElement.querySelector('.feed__heart-button');
+
+    setLikeEventListener(likeButton);
+};
+
 
 // Save post
 
@@ -157,7 +168,15 @@ postButtonSave.addEventListener("click", function () {
     
 });
 
+// Delete posts 
+const deleteButton = document.querySelectorAll('.feed__trash-button');
 
+deleteButton.forEach(function(button) {
+    button.addEventListener('click', function() {
+    const post = button.closest('.feed__post');
+    post.remove();
+  });
+});
 // Image popup
 
 // Open/Close/show image & title 
@@ -167,7 +186,7 @@ let closeButtonPopup = document.querySelector('.image-popup__close');
 let buttonPopups = document.querySelectorAll(".feed__image-popup-buttom");
 let imagePopup = document.querySelector('.image-popup');
 let imagePopupOn = document.querySelector('.image-popup_on');
-let showOpacityPopup = document.querySelector(".image-popup_on.show");
+
 
 function closepopup () {
 
@@ -176,7 +195,7 @@ function closepopup () {
 if (imagePopup.classList.contains('image-popup_on')) {
     
     imagePopup.classList.toggle('image-popup_on');
-    imagePopup.classList.toggle('image-popup_on.show');
+    
 } else if (imagePopup.classList.contains('image-popup_on') === false) {
     
     imagePopup.classList.toggle('image-popup_on');
@@ -186,26 +205,23 @@ if (imagePopup.classList.contains('image-popup_on')) {
 }
 
 closeButtonPopup.addEventListener('click', closepopup);
-buttonPopups.forEach(function(buttonPopups) {
-buttonPopups.addEventListener('click', closepopup);
-});
-
 
 //show image popup
 let popupImage = document.querySelector('.image-popup__image');
 let popupImageTitle = document.querySelector('.image-popup__title');
 
 buttonPopups.forEach(function(button) {
-  let feedImage = button.querySelector('.feed__image');
-  let feedTitle = button.closest('.feed__post').querySelector('.feed__title');
-
-  button.addEventListener('click', function() {
-    popupImage.src = feedImage.src;
-    popupImageTitle.textContent = feedTitle.textContent;
-  });
+    setImagePopupEventListener(button);
 });
 
 
-
-
-}); 
+function setImagePopupEventListener(button){
+    let feedImage = button.querySelector('.feed__image');
+    let feedTitle = button.closest('.feed__post').querySelector('.feed__title');
+  
+    button.addEventListener('click', function() {
+      popupImage.src = feedImage.src;
+      popupImageTitle.textContent = feedTitle.textContent;
+      closepopup();
+    });
+}
