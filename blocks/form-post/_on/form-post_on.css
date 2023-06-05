@@ -1,13 +1,7 @@
-.form-post_on{
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out;
-    z-index: 1;
-    animation: slide-in 0.3s ease-in;
-    pointer-events: auto;
+.form-post_on {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 1;
+  pointer-events: auto;
 }
 
-
-@keyframes slide-in {
-    from { transform: translateY(-50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-  }

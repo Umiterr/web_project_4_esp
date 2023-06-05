@@ -6,11 +6,20 @@ Este proyecto es un perfil interactivo llamado "Around The U.S.", donde los usua
 
 Se han implementado varias funcionalidades con JavaScript para aumentar la interactividad y la funcionalidad del sitio web.
 
-HTML: Se utilizó HTML para estructurar el contenido del sitio web. La estructura básica incluye un formulario para editar el perfil del usuario, una sección de perfil con información y botones de interacción, y una sección de feed que muestra las publicaciones de los usuarios.
 
-CSS: Se ha utilizado CSS para dar estilo y diseño a los elementos de la página. 
+Funcionalidades
 
-JavaScript: Se utilizó JavaScript para proporcionar interactividad al sitio web. Algunas de las funcionalidades implementadas incluyen la capacidad de abrir y cerrar el formulario de edición del perfil, la posibilidad de editar el nombre y la información de la sección 'Acerca de mí', y la opción de dar 'like' a las publicaciones a través de un botón de corazón.
+Editar Perfil: Los usuarios pueden editar su nombre y descripción de perfil.
+Agregar Lugar: Los usuarios pueden agregar un nuevo lugar con un título y una URL de imagen.
+Alimentación de Publicaciones: Los usuarios pueden ver una lista de publicaciones de otros usuarios, que incluyen el título de la publicación, una imagen y la opción de dar "me gusta" a las publicaciones.
+Ventanas Modales: Se utilizan ventanas modales para editar el perfil, agregar un lugar y ver una imagen en tamaño completo.
+Interacción con las Publicaciones: Los usuarios pueden dar "me gusta" a las publicaciones haciendo clic en el botón de corazón y eliminar una publicación haciendo clic en el botón de eliminar.
+
+Tecnologías Utilizadas
+
+HTML: Para estructurar la página y sus bases. haciendo con este las secciónes principales, los elementos de contenido y formularios.
+CSS: Para la apariencia y bases de esta, como viene siendo los estilos generales, el diseño del perfil, las ventanas modales y los estilos de las publicaciones.
+JavaScript: Con JS, se logró la edición del perfil, la funcionalidad e agregar un post, usar el boton de me gusta, hacer funcionales ventanas modales y tener un pop up para las imágenes de los posts.
 
 * Figma
 * Imágenes

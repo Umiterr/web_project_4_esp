@@ -1,23 +1,15 @@
 /* normalice */
 @import url(../styles/normalize.css);
 
-
-
 /* fonts */
 @import url(../fonts/inter.css);
-
-
 
 /* content */
 @import url(../blocks/content/content.css);
 
-
-
 /* header */
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
-
-
 
 /* profile */
 @import url(../blocks/profile/profile.css);
@@ -51,7 +43,6 @@
 @import url(../blocks/form-profile/__close-image/form-profile__close-image.css);
 @import url(../blocks/form-profile/_on/form-profile_on.css);
 
-
 /* form-post */
 @import url(../blocks/form-post/form-post.css);
 @import url(../blocks/form-post/__about/form-post__about.css);
@@ -73,7 +64,6 @@
 @import url(../blocks/form-post/__window/form-post__window.css);
 @import url(../blocks/form-post/__close-image/form-post__close-image.css);
 @import url(../blocks/form-post/_on/form-post_on.css);
-
 
 /* image popup */
 @import url(../blocks/image-popup/__close-image/image-popup__close-image.css);

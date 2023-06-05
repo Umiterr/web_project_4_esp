@@ -1,13 +1,13 @@
-.content{
-    
-    background-color: black;
-    margin: auto;
-    height: 100%;
-    padding-bottom: 30px;
+.content {
+  background-color: black;
+  margin: auto;
+  height: 100%;
+  padding-bottom: 30px;
+  min-width: 320px;
 }
 
 @media screen and (max-width: 585px) {
-    .content {
+  .content {
     height: auto;
-}
+  }
 }
