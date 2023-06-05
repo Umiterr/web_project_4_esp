@@ -1,28 +1,29 @@
 // Edit profile form
 
 // Open/Close
-let closeButton = document.querySelector(".form-profile__close");
-let formProfile = document.querySelector(".form-profile");
-let profileButton = document.querySelector(".profile__edit-button");
-let profileOn = document.querySelector(".form-profile_on");
+const closeButton = document.querySelector(".form-profile__close");
+const formProfile = document.querySelector(".form-profile");
+const profileButton = document.querySelector(".profile__edit-button");
+const profileOn = document.querySelector(".form-profile_on");
 
-function close() {
-  if (formProfile.classList.contains("form-profile_on")) {
-    formProfile.classList.toggle("form-profile_on");
-  } else if (formProfile.classList.contains("form-profile_on") === false) {
-    formProfile.classList.toggle("form-profile_on");
+function toggleProfile(form) {
+  if (form.classList.contains("form-profile_on")) {
+    form.classList.toggle("form-profile_on");
+  } else if (form.classList.contains("form-profile_on") === false) {
+    form.classList.toggle("form-profile_on");
   }
 }
 
-closeButton.addEventListener("click", close);
-profileButton.addEventListener("click", close);
+closeButton.addEventListener("click", () => toggleProfile(formProfile));
+
+profileButton.addEventListener("click", () => toggleProfile(formProfile));
 
 // Name/About
-let profileNameForm = document.querySelector(".form-profile__name");
-let profileAboutForm = document.querySelector(".form-profile__about");
-let profileName = document.querySelector(".profile__name");
-let profileAbout = document.querySelector(".profile__about");
-let profileSaveButton = document.querySelector(".form-profile__save");
+const profileNameForm = document.querySelector(".form-profile__name");
+const profileAboutForm = document.querySelector(".form-profile__about");
+const profileName = document.querySelector(".profile__name");
+const profileAbout = document.querySelector(".profile__about");
+const profileSaveButton = document.querySelector(".form-profile__save");
 
 function refreshProfile() {
   profileNameForm.value = profileName.textContent;
@@ -33,15 +34,14 @@ refreshProfile();
 
 // Save profile
 function edit(event) {
-  if (event.type === "keydown") {
-    if (event.key === "Enter") {
-      event.preventDefault();
-    }
-    return;
+  if (event.key === "Enter") {
+    event.preventDefault();
+    profileName.textContent = profileNameForm.value;
+    profileAbout.textContent = profileAboutForm.value;
+  } else if (event.type === "click") {
+    profileName.textContent = profileNameForm.value;
+    profileAbout.textContent = profileAboutForm.value;
   }
-
-  profileName.textContent = profileNameForm.value;
-  profileAbout.textContent = profileAboutForm.value;
 }
 
 profileSaveButton.addEventListener("click", edit);
@@ -51,30 +51,26 @@ profileAboutForm.addEventListener("keydown", edit);
 // post form
 
 // Open/Close
-let closeButtonPost = document.querySelector(".form-post__close");
-let postButtonSave = document.querySelector(".form-post__save");
-let postOn = document.querySelector(".form-post_on");
-let formPost = document.querySelector(".form-post");
-let postButtonAdd = document.querySelector(".profile__add-button");
+const closeButtonPost = document.querySelector(".form-post__close");
+const postButtonSave = document.querySelector(".form-post__save");
+const postOn = document.querySelector(".form-post_on");
+const formPost = document.querySelector(".form-post");
+const postButtonAdd = document.querySelector(".profile__add-button");
 
-function closePost() {
-  if (formPost.classList.contains("form-post_on")) {
-    formPost.classList.toggle("form-post_on");
-  } else if (formPost.classList.contains("form-post_on") === false) {
-    formPost.classList.toggle("form-post_on");
-  }
+function togglePost(form) {
+  form.classList.toggle("form-post_on");
 }
 
-closeButtonPost.addEventListener("click", closePost);
-postButtonSave.addEventListener("click", closePost);
-postButtonAdd.addEventListener("click", closePost);
+closeButtonPost.addEventListener("click", () => togglePost(formPost));
+postButtonSave.addEventListener("click", () => togglePost(formPost));
+postButtonAdd.addEventListener("click", () => togglePost(formPost));
 
 // posts
 const feed = document.querySelector(".feed");
 
 // heart button
 
-let heartButtons = document.querySelectorAll(".feed__heart-button");
+const heartButtons = document.querySelectorAll(".feed__heart-button");
 
 heartButtons.forEach(function (button) {
   setLikeEventListener(button);
@@ -149,39 +145,39 @@ deleteButton.forEach(function (button) {
 });
 // Image popup
 
-// Open/Close/show image & title
+// Close popup
 
-let closeButtonPopup = document.querySelector(".image-popup__close");
-let buttonPopups = document.querySelectorAll(".feed__image-popup-buttom");
-let imagePopup = document.querySelector(".image-popup");
-let imagePopupOn = document.querySelector(".image-popup_on");
+const closeButtonPopup = document.querySelector(".image-popup__close");
+const buttonPopups = document.querySelectorAll(".feed__image-popup-buttom");
+const imagePopup = document.querySelector(".image-popup");
+const imagePopupOn = document.querySelector(".image-popup_on");
 
-function closepopup() {
-  if (imagePopup.classList.contains("image-popup_on")) {
-    imagePopup.classList.toggle("image-popup_on");
-  } else if (imagePopup.classList.contains("image-popup_on") === false) {
-    imagePopup.classList.toggle("image-popup_on");
+function closePopup(popup) {
+  if (popup.classList.contains("image-popup_on")) {
+    popup.classList.toggle("image-popup_on");
+  } else if (popup.classList.contains("image-popup_on") === false) {
+    popup.classList.toggle("image-popup_on");
   }
 }
 
-closeButtonPopup.addEventListener("click", closepopup);
+closeButtonPopup.addEventListener("click", () => closePopup(imagePopup));
 
-//show image popup
-let popupImage = document.querySelector(".image-popup__image");
-let popupImageTitle = document.querySelector(".image-popup__title");
+//show popup
+const popupImage = document.querySelector(".image-popup__image");
+const popupImageTitle = document.querySelector(".image-popup__title");
 
 buttonPopups.forEach(function (button) {
   setImagePopupEventListener(button);
 });
 
 function setImagePopupEventListener(button) {
-  let feedImage = button.querySelector(".feed__image");
-  let feedTitle = button.closest(".feed__post").querySelector(".feed__title");
+  const feedImage = button.querySelector(".feed__image");
+  const feedTitle = button.closest(".feed__post").querySelector(".feed__title");
 
   button.addEventListener("click", function () {
     popupImage.src = feedImage.src;
     popupImageTitle.textContent = feedTitle.textContent;
-    closepopup();
+    closePopup(imagePopup);
   });
 }
 
