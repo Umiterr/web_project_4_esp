@@ -42,6 +42,7 @@
 @import url(../blocks/form-profile/__window/form-profile__window.css);
 @import url(../blocks/form-profile/__close-image/form-profile__close-image.css);
 @import url(../blocks/form-profile/_on/form-profile_on.css);
+@import url(../blocks/form-profile/__input/form-profile__input.css);
 
 /* form-post */
 @import url(../blocks/form-post/form-post.css);
@@ -53,17 +54,8 @@
 @import url(../blocks/form-post/__title/form-post__title.css);
 @import url(../blocks/form-post/__window/form-post__window.css);
 @import url(../blocks/form-post/_on/form-post_on.css);
+@import url(../blocks/form-post/__input/form-post__input.css);
 
-/* form-profile */
-@import url(../blocks/form-post/form-post.css);
-@import url(../blocks/form-post/__about/form-post__about.css);
-@import url(../blocks/form-post/__close/form-post__close.css);
-@import url(../blocks/form-post/__name/form-post__name.css);
-@import url(../blocks/form-post/__save/form-post__save.css);
-@import url(../blocks/form-post/__title/form-post__title.css);
-@import url(../blocks/form-post/__window/form-post__window.css);
-@import url(../blocks/form-post/__close-image/form-post__close-image.css);
-@import url(../blocks/form-post/_on/form-post_on.css);
 
 /* image popup */
 @import url(../blocks/image-popup/__close-image/image-popup__close-image.css);

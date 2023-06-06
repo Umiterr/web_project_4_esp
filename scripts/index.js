@@ -8,7 +8,7 @@ const profileOn = document.querySelector(".form-profile_on");
 
 function toggleProfile(form) {
   form.classList.toggle("form-profile_on");
-} 
+}
 
 closeButton.addEventListener("click", () => toggleProfile(formProfile));
 
@@ -20,6 +20,7 @@ const profileAboutForm = document.querySelector(".form-profile__about");
 const profileName = document.querySelector(".profile__info-name");
 const profileAbout = document.querySelector(".profile__about");
 const profileSaveButton = document.querySelector(".form-profile__save");
+const profileInput = document.querySelector(".form-profile__input");
 
 function refreshProfile() {
   profileNameForm.value = profileName.textContent;
@@ -31,17 +32,14 @@ refreshProfile();
 // Save profile
 function edit(event) {
   event.preventDefault();
-      profileName.textContent = profileNameForm.value;
-      profileAbout.textContent = profileAboutForm.value;
+  profileName.textContent = profileNameForm.value;
+  profileAbout.textContent = profileAboutForm.value;
 
-      toggleProfile(formProfile)
-  }
-
+  toggleProfile(formProfile);
+}
 
 profileSaveButton.addEventListener("click", edit);
-formProfile.addEventListener("keydown", function (event) {
-  (event.key === "Enter") && edit(event);
-});
+profileInput.addEventListener("submit", edit);
 
 // post form
 
@@ -51,6 +49,7 @@ const postButtonSave = document.querySelector(".form-post__save");
 const postOn = document.querySelector(".form-post_on");
 const formPost = document.querySelector(".form-post");
 const postButtonAdd = document.querySelector(".profile__add-button");
+const postInput = document.querySelector(".form-post__input");
 
 function togglePost(form) {
   form.classList.toggle("form-post_on");
@@ -59,9 +58,6 @@ function togglePost(form) {
 closeButtonPost.addEventListener("click", () => togglePost(formPost));
 postButtonSave.addEventListener("click", () => togglePost(formPost));
 postButtonAdd.addEventListener("click", () => togglePost(formPost));
-formPost.addEventListener("keydown", function (event) {
-  (event.key === "Enter") && togglePost(formPost);
-});
 
 // posts
 const feed = document.querySelector(".feed");
@@ -96,7 +92,7 @@ function savePost(formPostURL, formPostName) {
   feed.prepend(postElement);
 
   // Delete new posts
-   const deleteButton = postElement.querySelector(".feed__trash-button");
+  const deleteButton = postElement.querySelector(".feed__trash-button");
   deleteButton.addEventListener("click", function () {
     postElement.remove();
   });
@@ -114,21 +110,18 @@ function savePost(formPostURL, formPostName) {
 // Save post
 
 function addNewPost(event) {
-  
-    const formPostName = document.querySelector(".form-post__name");
-    const formPostURL = document.querySelector(".form-post__about");
+  event.preventDefault();
+  const formPostName = document.querySelector(".form-post__name");
+  const formPostURL = document.querySelector(".form-post__about");
 
-    savePost(formPostURL.value, formPostName.value);
+  savePost(formPostURL.value, formPostName.value);
 
-    formPostName.value = "";
-    formPostURL.value = "";
-  }
-
+  formPostName.value = "";
+  formPostURL.value = "";
+}
 
 postButtonSave.addEventListener("click", addNewPost);
-formPost.addEventListener("keydown", function (event) {
-  (event.key === "Enter") && addNewPost(event);
-});
+postInput.addEventListener("submit", addNewPost);
 
 // Delete posts
 const deleteButton = document.querySelectorAll(".feed__trash-button");
@@ -150,7 +143,7 @@ const imagePopupOn = document.querySelector(".image-popup_on");
 
 function closePopup(popup) {
   popup.classList.toggle("image-popup_on");
-} 
+}
 
 closeButtonPopup.addEventListener("click", () => closePopup(imagePopup));
 
@@ -175,17 +168,14 @@ function setImagePopupEventListener(button) {
 
 // Default posts
 const initialCards = [
-  {name:"Sodoma County", link:"images/Bliss.jpg" },
-  {name:"El Gran Cañón 2", link:"images/El-Gran-Canon-2.jpg" },
-  {name:"El Gran Cañón", link:"images/El-Gran-Canon.jpg"},
-  {name:"Montañas Calvas", link:"images/Montanas-Calvas.jpg"},
-  {name:"Lago-louise", link:"images/Lago-louise.jpg" },
-  {name:"Valle de Yosemite", link:"images/Yosemite.jpg" }
-]
+  { name: "Sodoma County", link: "images/Bliss.jpg" },
+  { name: "El Gran Cañón 2", link: "images/El-Gran-Canon-2.jpg" },
+  { name: "El Gran Cañón", link: "images/El-Gran-Canon.jpg" },
+  { name: "Montañas Calvas", link: "images/Montanas-Calvas.jpg" },
+  { name: "Lago-louise", link: "images/Lago-louise.jpg" },
+  { name: "Valle de Yosemite", link: "images/Yosemite.jpg" },
+];
 
-initialCards.forEach(function(item, i) {
+initialCards.forEach(function (item, i) {
   savePost(item.link, item.name);
 });
-  
-
-
