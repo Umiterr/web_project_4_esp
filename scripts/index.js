@@ -7,12 +7,8 @@ const profileButton = document.querySelector(".profile__edit-button");
 const profileOn = document.querySelector(".form-profile_on");
 
 function toggleProfile(form) {
-  if (form.classList.contains("form-profile_on")) {
-    form.classList.toggle("form-profile_on");
-  } else if (form.classList.contains("form-profile_on") === false) {
-    form.classList.toggle("form-profile_on");
-  }
-}
+  form.classList.toggle("form-profile_on");
+} 
 
 closeButton.addEventListener("click", () => toggleProfile(formProfile));
 
@@ -21,7 +17,7 @@ profileButton.addEventListener("click", () => toggleProfile(formProfile));
 // Name/About
 const profileNameForm = document.querySelector(".form-profile__name");
 const profileAboutForm = document.querySelector(".form-profile__about");
-const profileName = document.querySelector(".profile__name");
+const profileName = document.querySelector(".profile__info-name");
 const profileAbout = document.querySelector(".profile__about");
 const profileSaveButton = document.querySelector(".form-profile__save");
 
@@ -34,19 +30,18 @@ refreshProfile();
 
 // Save profile
 function edit(event) {
-  if (event.key === "Enter") {
-    event.preventDefault();
-    profileName.textContent = profileNameForm.value;
-    profileAbout.textContent = profileAboutForm.value;
-  } else if (event.type === "click") {
-    profileName.textContent = profileNameForm.value;
-    profileAbout.textContent = profileAboutForm.value;
+  event.preventDefault();
+      profileName.textContent = profileNameForm.value;
+      profileAbout.textContent = profileAboutForm.value;
+
+      toggleProfile(formProfile)
   }
-}
+
 
 profileSaveButton.addEventListener("click", edit);
-profileNameForm.addEventListener("keydown", edit);
-profileAboutForm.addEventListener("keydown", edit);
+formProfile.addEventListener("keydown", function (event) {
+  (event.key === "Enter") && edit(event);
+});
 
 // post form
 
@@ -64,6 +59,9 @@ function togglePost(form) {
 closeButtonPost.addEventListener("click", () => togglePost(formPost));
 postButtonSave.addEventListener("click", () => togglePost(formPost));
 postButtonAdd.addEventListener("click", () => togglePost(formPost));
+formPost.addEventListener("keydown", function (event) {
+  (event.key === "Enter") && togglePost(formPost);
+});
 
 // posts
 const feed = document.querySelector(".feed");
@@ -98,13 +96,9 @@ function savePost(formPostURL, formPostName) {
   feed.prepend(postElement);
 
   // Delete new posts
-  const deleteButton = document.querySelectorAll(".feed__trash-button");
-
-  deleteButton.forEach(function (button) {
-    button.addEventListener("click", function () {
-      const post = button.closest(".feed__post");
-      post.remove();
-    });
+   const deleteButton = postElement.querySelector(".feed__trash-button");
+  deleteButton.addEventListener("click", function () {
+    postElement.remove();
   });
 
   //Heart new button
@@ -120,7 +114,7 @@ function savePost(formPostURL, formPostName) {
 // Save post
 
 function addNewPost(event) {
-  if (event.key === "Enter" || event.type === "click") {
+  
     const formPostName = document.querySelector(".form-post__name");
     const formPostURL = document.querySelector(".form-post__about");
 
@@ -129,10 +123,12 @@ function addNewPost(event) {
     formPostName.value = "";
     formPostURL.value = "";
   }
-}
+
 
 postButtonSave.addEventListener("click", addNewPost);
-formPost.addEventListener("keydown", addNewPost);
+formPost.addEventListener("keydown", function (event) {
+  (event.key === "Enter") && addNewPost(event);
+});
 
 // Delete posts
 const deleteButton = document.querySelectorAll(".feed__trash-button");
@@ -153,12 +149,8 @@ const imagePopup = document.querySelector(".image-popup");
 const imagePopupOn = document.querySelector(".image-popup_on");
 
 function closePopup(popup) {
-  if (popup.classList.contains("image-popup_on")) {
-    popup.classList.toggle("image-popup_on");
-  } else if (popup.classList.contains("image-popup_on") === false) {
-    popup.classList.toggle("image-popup_on");
-  }
-}
+  popup.classList.toggle("image-popup_on");
+} 
 
 closeButtonPopup.addEventListener("click", () => closePopup(imagePopup));
 
@@ -182,10 +174,18 @@ function setImagePopupEventListener(button) {
 }
 
 // Default posts
+const initialCards = [
+  {name:"Sodoma County", link:"images/Bliss.jpg" },
+  {name:"El Gran Cañón 2", link:"images/El-Gran-Canon-2.jpg" },
+  {name:"El Gran Cañón", link:"images/El-Gran-Canon.jpg"},
+  {name:"Montañas Calvas", link:"images/Montanas-Calvas.jpg"},
+  {name:"Lago-louise", link:"images/Lago-louise.jpg" },
+  {name:"Valle de Yosemite", link:"images/Yosemite.jpg" }
+]
 
-savePost("images/Bliss.jpg", "Sodoma County");
-savePost("images/El-Gran-Canon-2.jpg", "El Gran Cañón 2");
-savePost("images/El-Gran-Canon.jpg", "El Gran Cañón");
-savePost("images/Montanas-Calvas.jpg", "Montañas Calvas");
-savePost("images/Lago-louise.jpg", "Lago-louise");
-savePost("images/Yosemite.jpg", "Valle de Yosemite");
+initialCards.forEach(function(item, i) {
+  savePost(item.link, item.name);
+});
+  
+
+
