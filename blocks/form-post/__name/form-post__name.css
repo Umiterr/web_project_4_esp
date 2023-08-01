@@ -12,6 +12,7 @@
   font-size: 14px;
   line-height: 17px;
   color: #000000;
+  margin-bottom: 15px;
 }
 
 .form-profile__name::placeholder {

@@ -5,14 +5,26 @@ const closeButton = document.querySelector(".form-profile__close");
 const formProfile = document.querySelector(".form-profile");
 const profileButton = document.querySelector(".profile__edit-button");
 const profileOn = document.querySelector(".form-profile_on");
+const profileBG = document.querySelector(".form-profile__BG");
 
 function toggleProfile(form) {
   form.classList.toggle("form-profile_on");
 }
 
+profileBG.addEventListener("click", () => toggleProfile(formProfile));
+
 closeButton.addEventListener("click", () => toggleProfile(formProfile));
 
 profileButton.addEventListener("click", () => toggleProfile(formProfile));
+
+document.addEventListener("keydown", (event) => {
+  if (
+    event.key === "Escape" &&
+    formProfile.classList.contains("form-profile_on")
+  ) {
+    toggleProfile(formProfile);
+  }
+});
 
 // Name/About
 const profileNameForm = document.querySelector(".form-profile__name");
@@ -20,7 +32,7 @@ const profileAboutForm = document.querySelector(".form-profile__about");
 const profileName = document.querySelector(".profile__info-name");
 const profileAbout = document.querySelector(".profile__about");
 const profileSaveButton = document.querySelector(".form-profile__save");
-const profileInput = document.querySelector(".form-profile__input");
+const profileInput = document.querySelector(".form-profile__inputs");
 
 function refreshProfile() {
   profileNameForm.value = profileName.textContent;
@@ -49,15 +61,23 @@ const postButtonSave = document.querySelector(".form-post__save");
 const postOn = document.querySelector(".form-post_on");
 const formPost = document.querySelector(".form-post");
 const postButtonAdd = document.querySelector(".profile__add-button");
-const postInput = document.querySelector(".form-post__input");
+const postInput = document.querySelector(".form-post__inputs");
+const postBG = document.querySelector(".form-post__BG");
 
 function togglePost(form) {
   form.classList.toggle("form-post_on");
 }
 
+postBG.addEventListener("click", () => togglePost(formPost));
 closeButtonPost.addEventListener("click", () => togglePost(formPost));
 postButtonSave.addEventListener("click", () => togglePost(formPost));
 postButtonAdd.addEventListener("click", () => togglePost(formPost));
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && formPost.classList.contains("form-post_on")) {
+    togglePost(formPost);
+  }
+});
 
 // posts
 const feed = document.querySelector(".feed");
@@ -124,6 +144,7 @@ postButtonSave.addEventListener("click", addNewPost);
 postInput.addEventListener("submit", addNewPost);
 
 // Delete posts
+
 const deleteButton = document.querySelectorAll(".feed__trash-button");
 
 deleteButton.forEach(function (button) {
@@ -132,6 +153,7 @@ deleteButton.forEach(function (button) {
     post.remove();
   });
 });
+
 // Image popup
 
 // Close popup
@@ -140,12 +162,23 @@ const closeButtonPopup = document.querySelector(".image-popup__close");
 const buttonPopups = document.querySelectorAll(".feed__image-popup-buttom");
 const imagePopup = document.querySelector(".image-popup");
 const imagePopupOn = document.querySelector(".image-popup_on");
+const imagePopupBG = document.querySelector(".image-popup__BG");
 
 function closePopup(popup) {
   popup.classList.toggle("image-popup_on");
 }
 
 closeButtonPopup.addEventListener("click", () => closePopup(imagePopup));
+imagePopupBG.addEventListener("click", () => closePopup(imagePopup));
+
+document.addEventListener("keydown", (event) => {
+  if (
+    event.key === "Escape" &&
+    imagePopup.classList.contains("image-popup_on")
+  ) {
+    closePopup(imagePopup);
+  }
+});
 
 //show popup
 const popupImage = document.querySelector(".image-popup__image");
@@ -179,3 +212,69 @@ const initialCards = [
 initialCards.forEach(function (item, i) {
   savePost(item.link, item.name);
 });
+
+// Form validator
+
+const showInputError = (formElement, inputElement, errorMessage) => {
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.add("form__input_type_error");
+  errorElement.textContent = errorMessage;
+  errorElement.classList.add("form__input-error_active");
+};
+
+const hideInputError = (formElement, inputElement) => {
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.remove("form__input_type_error");
+  errorElement.classList.remove("form__input-error_active");
+  errorElement.textContent = "";
+};
+
+const checkInputValidity = (formElement, inputElement) => {
+  if (!inputElement.validity.valid) {
+    showInputError(formElement, inputElement, inputElement.validationMessage);
+  } else {
+    hideInputError(formElement, inputElement);
+  }
+};
+
+const setEventListeners = (formElement) => {
+  const inputList = Array.from(formElement.querySelectorAll(".form__input"));
+  const buttonElement = formElement.querySelector(".form__submit");
+  inputList.forEach((inputElement) => {
+    inputElement.addEventListener("input", function () {
+      checkInputValidity(formElement, inputElement);
+      toggleButtonState(inputList, buttonElement);
+    });
+  });
+};
+
+const enableValidation = () => {
+  const formList = Array.from(document.querySelectorAll(".form"));
+  formList.forEach((formElement) => {
+    formElement.addEventListener("submit", function (evt) {
+      evt.preventDefault();
+    });
+
+    setEventListeners(formElement);
+  });
+};
+
+enableValidation();
+
+// Button State
+
+const hasInvalidInput = (inputList) => {
+  return inputList.some((inputElement) => {
+    return !inputElement.validity.valid;
+  });
+};
+
+const toggleButtonState = (inputList, buttonElement) => {
+  if (hasInvalidInput(inputList)) {
+    buttonElement.classList.add("form__submit_inactive");
+    buttonElement.disabled = true;
+  } else {
+    buttonElement.classList.remove("form__submit_inactive");
+    buttonElement.disabled = false;
+  }
+};
