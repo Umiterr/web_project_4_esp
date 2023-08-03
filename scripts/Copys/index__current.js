@@ -131,8 +131,8 @@ function savePost(formPostURL, formPostName) {
 
 function addNewPost(event) {
   event.preventDefault();
-  const formPostName = document.querySelector("#post-name-input");
-  const formPostURL = document.querySelector("#url-input");
+  const formPostName = document.querySelector(".form-post__name");
+  const formPostURL = document.querySelector(".form-post__about");
 
   savePost(formPostURL.value, formPostName.value);
 

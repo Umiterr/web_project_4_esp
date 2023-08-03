@@ -12,7 +12,7 @@
   width: 358px;
   height: 27px;
   justify-content: center;
-  
+
   overflow: hidden;
 }
 
@@ -28,9 +28,8 @@
 
 .form-profile__about_invalid {
   border-bottom: 1px solid red; /* el borde rojo es para entradas no válidas */
-} 
-
+}
 
 .form-profile__about_valid {
   border-bottom: 1px solid rgb(0, 255, 0); /* el borde rojo es para entradas no válidas */
-} 
+}

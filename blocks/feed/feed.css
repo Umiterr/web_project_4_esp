@@ -9,7 +9,6 @@
   padding-left: 20px;
 }
 
-
 @media screen and (max-width: 880px) {
   .feed {
     justify-content: center;
@@ -17,7 +16,7 @@
 }
 
 @media screen and (max-width: 920px) {
-    .feed {
-      justify-content: center;
-    }
+  .feed {
+    justify-content: center;
   }
+}

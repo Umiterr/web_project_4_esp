@@ -21,31 +21,35 @@
             />
           </button>
           <form class="form-profile__inputs" novalidate>
-          <input
-            class="form__input form-profile__name"
-            type="text"
-            id="name-input"
-            name="nombre"
-            placeholder="Nombre"
-            minlength="2"
-            maxlength="40"
-            required
-          />
-          <span class="form__input-error name-input-error"></span>
+            <input
+              class="form__input form-profile__name"
+              type="text"
+              id="name-input"
+              name="nombre"
+              placeholder="Nombre"
+              minlength="2"
+              maxlength="40"
+              required
+            />
+            <span class="form__input-error name-input-error"></span>
 
-          <input
-            class="form__input form-profile__about"
-            type="text"
-            id="about-input"
-            name="acerca-de"
-            placeholder="Acerca de mí"
-            minlength="2"
-            maxlength="200"
-            required
-          />
-          <span class="form__input-error about-input-error">Este campo es obligatorio</span>
-          <button class="form__submit form-profile__save" type="submit">Guardar</button>
-        </form>
+            <input
+              class="form__input form-profile__about"
+              type="text"
+              id="about-input"
+              name="acerca-de"
+              placeholder="Acerca de mí"
+              minlength="2"
+              maxlength="200"
+              required
+            />
+            <span class="form__input-error about-input-error"
+              >Este campo es obligatorio</span
+            >
+            <button class="form__submit form-profile__save" type="submit">
+              Guardar
+            </button>
+          </form>
         </div>
         <div class="form-profile__BG"></div>
       </section>
@@ -62,26 +66,38 @@
             />
           </button>
           <form class="form-post__inputs">
-          <input
-            class="form__input form-post__name"
-            type="text"
-            id="post-name-input"
-            name="nombre"
-            placeholder="Titulo"
-            minlength="2"
-            maxlength="30"
-          />
-          <span class="form__input-error post-name-input-error">Este campo es obligatorio</span>
-          <input
-            class="form__input form-post__url"
-            type="url"
-            id="url-input"
-            name="acerca-de"
-            placeholder="URL de la imagen"
-          />
-          <span class="form__input-error url-input-error">Este campo es obligatorio</span>
-          <button class=".form__submit form-post__save" type="submit">Guardar</button>
-        </form>
+            <input
+              class="form__input form-post__name"
+              type="text"
+              id="post-name-input"
+              name="nombre"
+              placeholder="Titulo"
+              minlength="2"
+              maxlength="30"
+              required
+            />
+            <span class="form__input-error post-name-input-error"
+              >Este campo es obligatorio</span
+            >
+            <input
+              class="form__input form-post__url"
+              type="url"
+              id="url-input"
+              name="acerca-de"
+              placeholder="URL de la imagen"
+              required
+            />
+            <span class="form__input-error url-input-error"
+              >Este campo es obligatorio</span
+            >
+            <button
+              class="form__submit form-post__save form__submit_inactive"
+              type="submit"
+              disabled
+            >
+              Guardar
+            </button>
+          </form>
         </div>
         <div class="form-post__BG"></div>
       </section>
@@ -131,7 +147,6 @@
         <button class="profile__add-button">
           <img src="images/UI/Add-Button.svg" alt="add-button" />
         </button>
-        
       </section>
 
       <section class="feed">
@@ -157,7 +172,6 @@
             </button>
           </div>
         </template>
-        
       </section>
     </main>
     <script src="scripts/index.js"></script>

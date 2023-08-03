@@ -58,7 +58,6 @@
 @import url(../blocks/form-post/__BG/form-post__BG.css);
 @import url(../blocks/form-profile/__BG/form-profile__BG.css);
 
-
 /* image popup */
 @import url(../blocks/image-popup/__close-image/image-popup__close-image.css);
 @import url(../blocks/image-popup/__close/image-popup__close.css);
@@ -68,8 +67,6 @@
 @import url(../blocks/image-popup/__image/image-popup__image.css);
 @import url(../blocks/image-popup/_on/image-popup_on.css);
 @import url(../blocks/image-popup/__BG/image-popup__BG.css);
-
-
 
 /* form */
 @import url(../blocks/form/__input-error/form__input-error.css);
