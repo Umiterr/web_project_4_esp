@@ -131,13 +131,14 @@ function savePost(formPostURL, formPostName) {
 
 function addNewPost(event) {
   event.preventDefault();
-  const formPostName = document.querySelector("#post-name-input");
-  const formPostURL = document.querySelector("#url-input");
+  const formPostName = document.querySelector(".form-post__name");
+  const formPostURL = document.querySelector(".form-post__url");
 
   savePost(formPostURL.value, formPostName.value);
 
   formPostName.value = "";
   formPostURL.value = "";
+  DisablePostButton();
 }
 
 postButtonSave.addEventListener("click", addNewPost);
@@ -277,4 +278,12 @@ const toggleButtonState = (inputList, buttonElement) => {
     buttonElement.classList.remove("form__submit_inactive");
     buttonElement.disabled = false;
   }
+};
+
+//Disables Post button after adding a new post
+const DisablePostButton = () => {
+  const formPostElement = document.querySelector(".form-post");
+  const buttonPostElement = formPostElement.querySelector(".form-post__save");
+  buttonPostElement.classList.add("form__submit_inactive");
+  buttonPostElement.disabled = true;
 };
