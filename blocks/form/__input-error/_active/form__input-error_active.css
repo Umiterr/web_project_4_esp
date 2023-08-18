@@ -1,7 +1,6 @@
 .form__input-error_active {
   opacity: 1;
   margin: 0;
-  font-size: 13px;
   text-align: left;
   color: red;
   width: 363px;
@@ -11,5 +10,4 @@
   font-weight: 400;
   line-height: 15px;
   letter-spacing: 0em;
-  text-align: left;
 }
