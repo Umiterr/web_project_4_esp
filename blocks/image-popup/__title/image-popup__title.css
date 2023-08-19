@@ -6,6 +6,21 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 15px;
-
+  
   color: #ffffff;
+  position: relative;
+  right: 220px;
+}
+
+
+@media screen and (max-width: 946px) {
+  .image-popup__title {
+   right: 125px;
+  }
+}
+
+@media screen and (max-width: 634px) {
+  .image-popup__title {
+   right:-10px;
+  }
 }

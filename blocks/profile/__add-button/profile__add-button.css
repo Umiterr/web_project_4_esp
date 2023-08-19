@@ -19,7 +19,15 @@
 @media screen and (max-width: 886px) {
   .profile__add-button {
     position: absolute;
-    bottom: 600px;
+    bottom: 870px;
+    right: 72px;
+  }
+}
+
+@media screen and (max-width: 844px) {
+  .profile__add-button {
+    position: absolute;
+    bottom: 810px;
     right: 72px;
   }
 }

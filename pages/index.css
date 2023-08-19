@@ -4,6 +4,9 @@
 /* fonts */
 @import url(../fonts/inter.css);
 
+/* body */
+@import url(../blocks/body/body.css);
+
 /* content */
 @import url(../blocks/content/content.css);
 
