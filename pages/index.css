@@ -78,6 +78,5 @@
 @import url(../blocks/form/__submit/form__submit.css);
 @import url(../blocks/form/__submit/_inactive/form__submit_inactive.css);
 
-
-/* footer */ 
+/* footer */
 @import url(../blocks/footer/footer.css);
