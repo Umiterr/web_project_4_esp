@@ -9,6 +9,63 @@
   </head>
   <body>
     <main class="content">
+      
+
+      
+
+      <header class="header">
+        <img
+          class="header__logo"
+          src="images/UI/Logo.svg"
+          alt="Around The U.S."
+        />
+      </header>
+
+      <section class="profile">
+        <img
+          class="profile__image"
+          src="images/profile/Jack-Cousteau.jpg"
+          alt="Image-profile"
+        />
+        <div class="profile__info">
+          <h2 class="profile__info-name">Jacques Cousteau</h2>
+          <h3 class="profile__about">Explorador</h3>
+        </div>
+
+        <button class="profile__edit-button">
+          <img src="images/UI/Edit-Button.svg" alt="Edit-button" />
+        </button>
+
+        <button class="profile__add-button">
+          <img src="images/UI/Add-Button.svg" alt="add-button" />
+        </button>
+      </section>
+
+      <section class="feed">
+        <template class="feed__post-template">
+          <div class="feed__post">
+            <button class="feed__trash-button">
+              <img
+                class="feed__trash-image"
+                src="images/UI/Trash.svg"
+                alt="trash"
+              />
+            </button>
+            <button class="feed__image-popup-buttom">
+              <img class="feed__image" src=" " alt="Post image" />
+            </button>
+            <h3 class="feed__title"></h3>
+            <button class="feed__heart-button">
+              <img
+                class="feed__heart-image"
+                src="images/UI/Heart-White.svg"
+                alt="Heart white"
+              />
+            </button>
+          </div>
+        </template>
+      </section>
+      <footer>©2023 Mauricio</footer>
       <section class="form form-profile">
         <div class="form-profile__window">
           <h3 class="form-profile__title">Editar perfil</h3>
@@ -53,7 +110,6 @@
         </div>
         <div class="form-profile__BG"></div>
       </section>
-
       <section class="form form-post">
         <div class="form-post__window">
           <h3 class="form-post__title">Nuevo lugar</h3>
@@ -120,60 +176,6 @@
         </div>
         <div class="image-popup__BG"></div>
       </section>
-
-      <header class="header">
-        <img
-          class="header__logo"
-          src="images/UI/Logo.svg"
-          alt="Around The U.S."
-        />
-      </header>
-
-      <section class="profile">
-        <img
-          class="profile__image"
-          src="images/profile/Jack-Cousteau.jpg"
-          alt="Image-profile"
-        />
-        <div class="profile__info">
-          <h2 class="profile__info-name">Jacques Cousteau</h2>
-          <h3 class="profile__about">Explorador</h3>
-        </div>
-
-        <button class="profile__edit-button">
-          <img src="images/UI/Edit-Button.svg" alt="Edit-button" />
-        </button>
-
-        <button class="profile__add-button">
-          <img src="images/UI/Add-Button.svg" alt="add-button" />
-        </button>
-      </section>
-
-      <section class="feed">
-        <template class="feed__post-template">
-          <div class="feed__post">
-            <button class="feed__trash-button">
-              <img
-                class="feed__trash-image"
-                src="images/UI/Trash.svg"
-                alt="trash"
-              />
-            </button>
-            <button class="feed__image-popup-buttom">
-              <img class="feed__image" src=" " alt="Post image" />
-            </button>
-            <h3 class="feed__title"></h3>
-            <button class="feed__heart-button">
-              <img
-                class="feed__heart-image"
-                src="images/UI/Heart-White.svg"
-                alt="Heart white"
-              />
-            </button>
-          </div>
-        </template>
-      </section>
-      <footer></footer>
     </main>
     <script src="scripts/index.js"></script>
     <script src="scripts/validate.js"></script>
