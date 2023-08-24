@@ -13,5 +13,26 @@
   .profile__info {
     padding-left: 0px;
     gap: 0px;
+    
   }
 }
+
+
+@media screen and (max-width: 474px) {
+  .profile__info {
+    padding-left: 0px;
+    gap: 0px;
+    width: 300px;
+  }
+}
+
+
+@media screen and (max-width: 380px) {
+  .profile__info {
+    padding-left: 0px;
+    gap: 0px;
+    width: 213px;
+  }
+}
+
+    

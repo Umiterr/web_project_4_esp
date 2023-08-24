@@ -10,12 +10,14 @@
   overflow: hidden;
   text-overflow: ellipsis;
   min-width: 320px;
+  text-align: center;
 }
 
-@media screen and (max-width: 445px) {
+@media screen and (max-width: 444px) {
   .profile__info-name {
     font-size: 22px;
     line-height: 255%;
     text-align: center;
+    min-width: 0px;
   }
 }

@@ -167,19 +167,24 @@ const imagePopupBG = document.querySelector(".image-popup__BG");
 
 function closePopup(popup) {
   popup.classList.toggle("image-popup_on");
+  if (popup.classList.contains("image-popup_on")) {
+    document.addEventListener("keydown", closeEscapePopupImage);
+  } else {
+    document.removeEventListener("keydown", closeEscapePopupImage);
+  }
 }
 
 closeButtonPopup.addEventListener("click", () => closePopup(imagePopup));
 imagePopupBG.addEventListener("click", () => closePopup(imagePopup));
 
-document.addEventListener("keydown", (event) => {
+const closeEscapePopupImage = (event) => {
   if (
     event.key === "Escape" &&
     imagePopup.classList.contains("image-popup_on")
   ) {
     closePopup(imagePopup);
   }
-});
+};
 
 //show popup
 const popupImage = document.querySelector(".image-popup__image");
@@ -196,6 +201,8 @@ function setImagePopupEventListener(button) {
   button.addEventListener("click", function () {
     popupImage.src = feedImage.src;
     popupImageTitle.textContent = feedTitle.textContent;
+    popupImage.alt = feedTitle.textContent;
+
     closePopup(imagePopup);
   });
 }
@@ -213,4 +220,3 @@ const initialCards = [
 initialCards.forEach(function (item, i) {
   savePost(item.link, item.name);
 });
-
